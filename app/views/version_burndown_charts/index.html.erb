@@ -5,7 +5,7 @@
 <% end %>
 
 <% unless flash[:error] -%>
-  <%= @graph %>
+  <%= raw @graph %>
 <% end -%>
 
 <% content_for :sidebar do -%>

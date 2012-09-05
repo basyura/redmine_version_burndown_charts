@@ -79,7 +79,7 @@ class VersionBurndownChartsController < ApplicationController
     chart.set_y_legend(y_legend)
 
     x = XAxis.new
-    x.set_range(0, @sprint_range + 1, 1)
+    x.set_range(0, (@sprint_range + 1).to_i, 1)
     x.set_labels(x_labels_data)
     chart.x_axis = x
 
@@ -247,7 +247,7 @@ class VersionBurndownChartsController < ApplicationController
       render :action => "index" and return false
     end
 
-    @sprint_range = @version.due_date - @start_date + 1
+    @sprint_range = (@version.due_date - @start_date + 1).to_i
 
     logger.debug("@start_date #{@start_date}")
     logger.debug("@version.due_date #{@version.due_date}")
